@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercício DOM</title>
+</head>
+<body>
+    <ul id="lista">
+        <li>Item inicial</li>
+    </ul>
+    <button id="adicionarNovoItem">Adicionar Item</button>
+
+    <script>
+        function adicionarItem() {
+
+            var lista = document.getElementById('lista');
+
+            var novoItem = document.createElement('li');
+            var novoNumero = lista.getElementsByTagName('li').length + 1;
+            novoItem.textContent = "Novo Item " + novoNumero;
+
+            var botaoRemover = document.createElement('button');
+            botaoRemover.textContent = "Remover";
+            botaoRemover.onclick = function() {
+                lista.removeChild(novoItem); 
+            };
+
+            novoItem.appendChild(botaoRemover);
+
+            lista.appendChild(novoItem);
+        }
+
+        document.getElementById('adicionarNovoItem').addEventListener('click', adicionarItem);
+    </script>
+</body>
+</html>
